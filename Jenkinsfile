@@ -18,7 +18,7 @@ pipeline
 				echo 'Actualizar fuentes'
 				checkout([$class: 'GitSCM', branches: [[name: "master"]], 
                 doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [
-                [credentialsId: "arqperformance", url: "https://github.com/arqperformance/democpt/"]
+                [credentialsId: "arqperformance", url: "https://github.com/arqperformance/democpt.git"]
                 ]])
 			}
 		}		
