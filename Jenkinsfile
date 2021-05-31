@@ -27,9 +27,9 @@ pipeline
 				script {
 					try{
 						echo 'Performance Guardar Build And JobName'					 
-						bat "C:\\apache-jmeter-5.0\\bin\\jmeter -n -t $WORKSPACE\\democpt\\Build.jmx -JJOB_NAME=Baseline_${env.BUILD_NUMBER}"
+						bat "C:\\apache-jmeter-5.0\\bin\\jmeter -n -t $WORKSPACE\\Build.jmx -JJOB_NAME=Baseline_${env.BUILD_NUMBER}"
 						echo "Ejecutar Performance Test"
-						bat "bzt $WORKSPACE\\democpt\\DemoOrange.yml $WORKSPACE\\democpt\\passfail_config.yml"
+						bat "bzt $WORKSPACE\\DemoOrange.yml $WORKSPACE\\passfail_config.yml"
 						perfReport './Orange_inicio.xml'						
 					} 
 					catch(ex)
