@@ -18,7 +18,7 @@ pipeline
 				echo 'Actualizar fuentes'
 				checkout([$class: 'GitSCM', branches: [[name: "master"]], 
                 doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [
-                [credentialsId: "arqperformance", url: "https://gitlab.com/arqperformance/democpt"]
+                [credentialsId: "arqperformance", url: "https://github.com/arqperformance/democpt/"]
                 ]])
 			}
 		}		
@@ -27,7 +27,7 @@ pipeline
 				script {
 					try{
 						echo 'Performance Guardar Build And JobName'					 
-						bat "C:\\apache-jmeter-5.3\\bin\\jmeter -n -t $WORKSPACE\\democpt\\Build.jmx -JJOB_NAME=Baseline_${env.BUILD_NUMBER}"
+						bat "C:\\apache-jmeter-5.0\\bin\\jmeter -n -t $WORKSPACE\\democpt\\Build.jmx -JJOB_NAME=Baseline_${env.BUILD_NUMBER}"
 						echo "Ejecutar Performance Test"
 						bat "bzt $WORKSPACE\\democpt\\DemoOrange.yml $WORKSPACE\\democpt\\passfail_config.yml"
 						perfReport './Orange_inicio.xml'						
